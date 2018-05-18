@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jo Ken Po - Vitor Machado - CC1M</title>
+
+
+	<style type="text/css">
+		body{
+			background-image: url("retro.jpg");
+			background-attachment:fixed;
+			background-repeat:no-repeat;
+			background-size:cover;
+		}
+		div.regras{
+			font-family: verdana;
+			font-size: 20px;
+			color: white;
+			background-color: black;
+		}
+		h1{
+			font-family: verdana;
+			font-size: 40px;
+			color:white;
+		}
+		div.inline{display: inline-block}
+
+	</style>
+
+
+	<script type="text/javascript">
+
+		window.onload = init;
+		var div;
+		var vitoriasuser = 0;
+		var vitoriaspc = 0;
+
+		function init(){
+			div = document.getElementById('escolhadiv');
+			div.addEventListener('click',callback);
+		}
+
+		function callback(event){
+			var escolhapc = Math.floor(Math.random()*3);
+			var escolhauser = event.target.id;
+
+			if ((escolhauser=="pedra")&&(escolhapc=='0')){
+				alert("Você escolheu pedra.\nPC escolheu pedra.\nEmpate!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+			else if ((escolhauser=="pedra")&&(escolhapc=='1')){
+				vitoriaspc++;
+				alert("Você escolheu pedra.\nPC escolheu papel.\nVoce perdeu!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+			else if ((escolhauser=="pedra")&&(escolhapc=='2')){
+				vitoriasuser++;
+				alert("Você escolheu pedra.\nPC escolheu tesoura.\nVoce venceu!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+
+
+			else if ((escolhauser=="papel")&&(escolhapc=='0')){
+				vitoriasuser++;
+				alert("Você escolheu papel.\nPC escolheu pedra.\nVoce venceu!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+			else if ((escolhauser=="papel")&&(escolhapc=='1')){
+				alert("Você escolheu papel.\nPC escolheu papel.\nEmpate!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+			else if ((escolhauser=="papel")&&(escolhapc=='2')){
+				vitoriaspc++;
+				alert("Você escolheu papel.\nPC escolheu tesoura.\nVoce perdeu!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+
+
+			else if ((escolhauser=="tesoura")&&(escolhapc=='0')){
+				vitoriaspc++;
+				alert("Você escolheu tesoura.\nPC escolheu pedra.\nVoce perdeu!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+			else if ((escolhauser=="tesoura")&&(escolhapc=='1')){
+				vitoriasuser++;
+				alert("Você escolheu tesoura.\nPC escolheu papel.\nVoce venceu!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+			else if ((escolhauser=="tesoura")&&(escolhapc=='2')){
+				alert("Você escolheu tesoura.\nPC escolheu tesoura.\nEmpate!\nTotal vitorias do usuario: " + vitoriasuser +"\nTotal vitorias do PC: " + vitoriaspc);
+			}
+		}
+
+	</script>
+</head>
+
+<body>
+
+	<h1 align="center">JO KEN PO</h1>
+
+
+	<div align="center">
+		<div class="inline regras">
+			Como jogar:<br><br>
+			1- Selecione uma das opções abaixo (Pedra, Papel<br> ou Tesoura) clicando no botão correspondente<br>
+			2- O computador selecionará uma opção aleatória             <br>
+			3- Seu número de vitórias será exibido no alerta               <br><br>
+		</div>
+		<div class="inline regras">
+			Regras:<br><br>
+			1- Pedra ganha de tesoura<br>
+			2- Tesoura ganha de papel<br>
+			3- Papel ganha de pedra<br><br><br>
+		</div>
+	</div>
+
+	<br><br><br><br>
+
+
+	<div id="escolhadiv" align="center">
+		<div class="inline"><img src="rock.png" alt="Rock" height="40%" width="40%"><br><button id="pedra" value='a'>Pedra</button></div>
+		<div class="inline"><img src="paper.png" alt="Paper" height="40%" width="40%"><br><button id="papel" value='b'>Papel</button></div>
+		<div class="inline"><img src="scissors.png" alt="Scissors" height="40%" width="40%"><br><button id="tesoura" value='c'>Tesoura</button></div>
+	</div>
+
+</body>
+</html>
